@@ -33,8 +33,10 @@ let s:ack_mappings = {
       \ "O": "<CR><C-W>p<C-W>c",
       \ "go": "<CR><C-W>p",
       \ "h": "<C-W><CR><C-W>K",
+      \ "<C-x>": "<C-W><CR><C-w>K",
       \ "H": "<C-W><CR><C-W>K<C-W>b",
       \ "v": "<C-W><CR><C-W>H<C-W>b<C-W>J<C-W>t",
+      \ "<C-v>": "<C-W><CR><C-W>H<C-W>b<C-W>J<C-W>t",
       \ "gv": "<C-W><CR><C-W>H<C-W>b<C-W>J" }
 
 if exists("g:ack_mappings")
@@ -68,6 +70,7 @@ if !exists("g:ack_use_cword_for_empty_search")
 endif
 
 command! -bang -nargs=* -complete=file Ack           call ack#Ack('grep<bang>', <q-args>)
+command! -bang -nargs=* -complete=file Ag           call ack#Ack('grep<bang>', <q-args>)
 command! -bang -nargs=* -complete=file AckAdd        call ack#Ack('grepadd<bang>', <q-args>)
 command! -bang -nargs=* -complete=file AckFromSearch call ack#AckFromSearch('grep<bang>', <q-args>)
 command! -bang -nargs=* -complete=file LAck          call ack#Ack('lgrep<bang>', <q-args>)
